@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #2c3e50;
+}
+
+/* Global Button Styles */
+@layer components {
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer border-none;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent border-2 border-white text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-white hover:text-primary cursor-pointer;
+  }
+
+  .btn-outline {
+    @apply border-2 border-primary text-primary px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:bg-primary hover:text-white cursor-pointer;
+  }
+
+  .section-title {
+    @apply text-center mb-12;
+  }
+
+  .section-title h2 {
+    @apply text-4xl font-bold text-primary mb-2;
+  }
+
+  .section-title p {
+    @apply text-text-light text-lg;
+  }
+
+  .card {
+    @apply bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg;
+  }
+
+  .page-container {
+    @apply max-w-7xl mx-auto px-4;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  h1 {
+    @apply text-3xl;
+  }
+  h2 {
+    @apply text-2xl;
+  }
+  h3 {
+    @apply text-xl;
+  }
+}
+
+/* Loading State */
+.loading {
+  @apply opacity-50 pointer-events-none;
+}
+
+/* Form Styling */
+input, textarea, select {
+  @apply w-full px-4 py-2 border border-border-color rounded-lg focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-opacity-10 transition-all duration-300;
+}
+
+/* Utility Classes */
+.text-gradient {
+  background: linear-gradient(135deg, #0E95B8, #FF8C42);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

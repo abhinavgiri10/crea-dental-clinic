@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Crea Dental Clinic - Creating exceptional dental experiences in Chennai. Expert dental care with modern facilities.">
+    <title>Crea Dental Clinic - Chennai's Trusted Dental Care</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-teal: #0E95B8;
+            --accent-orange: #FF8C42;
+            --light-bg: #f8f9fa;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --border-color: #e0e0e0;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+        }
+
+        /* Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-teal);
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-orange));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-teal);
+        }
+
+        .nav-links a.active {
+            color: var(--primary-teal);
+            border-bottom: 3px solid var(--accent-orange);
+            padding-bottom: 5px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--primary-teal), var(--accent-orange));
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(14, 149, 184, 0.4);
+        }
+
+        /* Page Sections */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-teal) 0%, #0d7a95 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 140, 66, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 700px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--accent-orange);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: #e67e3a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 140, 66, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid white;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-teal);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-orange);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(14, 149, 184, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            color: var(--primary-teal);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 4rem 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            color: var(--primary-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .features-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        .feature-icon {
+            color: var(--accent-orange);
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Gallery */
+        .gallery {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(14, 149, 184, 0.3);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(14, 149, 184, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 4rem 2rem;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            border-left: 4px solid var(--accent-orange);
+        }
+
+        .stars {
+            color: var(--accent-orange);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-text {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-teal);
+            margin-bottom: 0.3rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Video Testimonials */
+        .video-testimonials {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .video-item {
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(14, 149, 184, 0.3);
+        }
+
+        .video-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            text-align: center;
+        }
+
+        .play-icon {
+            font-size: 4rem;
+        }
+
+        /* Booking Section */
+        .booking {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary-teal) 0%, #0d7a95 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .booking h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .booking p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .booking-options {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .booking-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid rgba(255,255,255,0.2);
+            flex: 1;
+            min-width: 250px;
+            transition: all 0.3s ease;
+        }
+
+        .booking-card:hover {
+            background: rgba(255,255,255,0.15);
+            border-color: var(--accent-orange);
+        }
+
+        .booking-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .booking-card p {
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 4rem 2rem;
+            background-color: var(--light-bg);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--accent-orange);
+            margin-bottom: 1rem;
+        }
+
+        .contact-item h3 {
+            color: var(--primary-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item p {
+            color: var(--text-light);
+        }
+
+        .contact-item a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+            }
+
+            .booking-options {
+                flex-direction: column;
+            }
+
+            .booking-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">🦷</div>
+                <span>CREA DENTAL</span>
+            </div>
+            <ul class="nav-links">
+                <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+                <li><a onclick="showPage('services')" id="nav-services">Services</a></li>
+                <li><a onclick="showPage('testimonials')" id="nav-testimonials">Reviews</a></li>
+                <li><button class="cta-button" onclick="showPage('booking')">Book Now</button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Page 1: Home -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Your Smile, Our Passion</h1>
+                <p>Creating exceptional dental experiences catered to your requirements</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="showPage('booking')">Book Appointment</button>
+                    <button class="btn-secondary" onclick="showPage('services')">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Services -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive dental care for the whole family</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🦷</div>
+                        <h3>General Dentistry</h3>
+                        <p>Routine check-ups, cleanings, and preventive care to keep your teeth healthy</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Whitening, veneers, and smile makeovers for your best smile</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Restorative</h3>
+                        <p>Fillings, crowns, and implants to restore your teeth</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery -->
+        <section class="gallery">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Clinic</h2>
+                    <p>State-of-the-art facilities and comfortable environment</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%230E95B8' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EClinic Interior%3C/text%3E%3C/svg%3E" alt="Clinic Interior">
+                        <div class="gallery-overlay">Interior View</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23FF8C42' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3ETreatment Room%3C/text%3E%3C/svg%3E" alt="Treatment Room">
+                        <div class="gallery-overlay">Modern Equipment</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%230E95B8' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EWaiting Area%3C/text%3E%3C/svg%3E" alt="Waiting Area">
+                        <div class="gallery-overlay">Comfortable Space</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23FF8C42' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3EOur Team%3C/text%3E%3C/svg%3E" alt="Our Team">
+                        <div class="gallery-overlay">Expert Team</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%230E95B8' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3ETechnology%3C/text%3E%3C/svg%3E" alt="Advanced Technology">
+                        <div class="gallery-overlay">Latest Technology</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect fill='%23FF8C42' width='300' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='24' fill='white'%3ESterilization%3C/text%3E%3C/svg%3E" alt="Sterilization">
+                        <div class="gallery-overlay">Highest Standards</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page 2: Services & About -->
+    <div id="services" class="page">
+        <!-- About Section -->
+        <section class="about">
+            <div class="container">
+                <div class="section-title">
+                    <h2>About Crea Dental Clinic</h2>
+                    <p>Excellence in dental care since opening</p>
+                </div>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Creating Exceptional Dental Experiences</h3>
+                        <p>At Crea Dental Clinic, we believe that every patient deserves exceptional care tailored to their unique needs. Whether you're here for a routine check-up or a complete smile transformation, we're here to guide you every step of the way.</p>
+                        <p>Our mission is to provide comprehensive dental services using the latest technology and techniques, in a comfortable, welcoming environment.</p>
+                        <div class="features-list">
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Expert Dentists</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Modern Equipment</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Patient Comfort</span>
+                            </div>
+                            <div class="feature-item">
+                                <span class="feature-icon">✓</span>
+                                <span>Affordable Rates</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 400'%3E%3Crect fill='%230E95B8' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='white'%3EClinic Photo%3C/text%3E%3C/svg%3E" alt="Clinic" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(14,149,184,0.3);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Detail -->
+        <section class="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Comprehensive Services</h2>
+                    <p>Full range of dental treatments</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🦷</div>
+                        <h3>General Dentistry</h3>
+                        <p>Preventive care, cleanings, fillings, and routine check-ups to maintain optimal oral health</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✨</div>
+                        <h3>Cosmetic Dentistry</h3>
+                        <p>Teeth whitening, veneers, bonding, and complete smile makeovers</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Restorative Dentistry</h3>
+                        <p>Crowns, bridges, implants, and dentures to restore your smile</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">📋</div>
+                        <h3>Orthodontics</h3>
+                        <p>Braces and aligners to straighten your teeth and perfect your bite</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🦴</div>
+                        <h3>Surgical Procedures</h3>
+                        <p>Extractions and oral surgery performed with utmost care</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">👶</div>
+                        <h3>Pediatric Dentistry</h3>
+                        <p>Special care for children's dental health and development</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Location Info -->
+        <section class="contact" style="padding: 4rem 2rem;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Visit Us</h2>
+                    <p>Conveniently located in Egmore, Chennai</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <h3>Address</h3>
+                        <p>16/1, 1st Floor, Sait Colony 1st Street<br>Above Freshco, Egmore<br>Chennai 600008</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <h3>Hours</h3>
+                        <p>Monday - Sunday<br>09:00 AM - 08:00 PM<br>Sunday by Appointment</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <h3>Contact</h3>
+                        <p><a href="tel:+918778548741">+91 8778548741</a><br><a href="mailto:info@creadentalclinic.com">info@creadentalclinic.com</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Page 3: Testimonials & Booking -->
+    <div id="testimonials" class="page">
+        <!-- Google Reviews -->
+        <section class="testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Patient Testimonials</h2>
+                    <p>What our patients say about us</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Excellent service! The staff is friendly, and the clinic is very clean and well-maintained. Dr. Abhinav is professional and thorough. Highly recommended!"</p>
+                        <div class="testimonial-author">Rajesh Kumar</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"I was very anxious about my dental treatment, but the team made me feel comfortable. The treatment was painless and the results are amazing. Thank you!"</p>
+                        <div class="testimonial-author">Priya Singh</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Best dental clinic in Egmore! Modern equipment, skilled doctors, and reasonable pricing. My whole family comes here now."</p>
+                        <div class="testimonial-author">Arjun Patel</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Had my implant done here. The procedure was smooth, and the aftercare instructions were clear. Very happy with the results!"</p>
+                        <div class="testimonial-author">Sneha Gupta</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Brought my kids for a check-up. The pediatric dentist is amazing - patient, gentle, and made the kids feel at ease!"</p>
+                        <div class="testimonial-author">Meera Nair</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">⭐⭐⭐⭐⭐</div>
+                        <p class="testimonial-text">"Got my teeth whitened here. The transformation is incredible! Professional team and great value for money."</p>
+                        <div class="testimonial-author">Vikram Sharma</div>
+                        <div class="testimonial-role">Google Review</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Testimonials -->
+        <section class="video-testimonials">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Video Testimonials</h2>
+                    <p>Hear directly from our satisfied patients</p>
+                </div>
+                <div class="video-grid">
+                    <div class="video-item" onclick="alert('Video testimonial space - Add your video here')">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶️</div>
+                            <div>Patient Testimony 1</div>
+                        </div>
+                    </div>
+                    <div class="video-item" onclick="alert('Video testimonial space - Add your video here')">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶️</div>
+                            <div>Patient Testimony 2</div>
+                        </div>
+                    </div>
+                    <div class="video-item" onclick="alert('Video testimonial space - Add your video here')">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶️</div>
+                            <div>Patient Testimony 3</div>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem; color: var(--text-light);">
+                    <p>💡 Tip: Collect video testimonials from your happy patients and add them here to boost trust and conversions</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Booking Page -->
+    <div id="booking" class="page">
+        <!-- Booking CTA -->
+        <section class="booking">
+            <h2>Schedule Your Appointment</h2>
+            <p>Reserve your time with our expert dental team</p>
+            <div class="booking-options">
+                <div class="booking-card">
+                    <h3>📞 Call Us</h3>
+                    <p>Direct booking over phone</p>
+                    <a href="tel:+918778548741" class="cta-button" style="background: var(--accent-orange);">+91 8778548741</a>
+                </div>
+                <div class="booking-card">
+                    <h3>💬 WhatsApp</h3>
+                    <p>Quick booking via WhatsApp</p>
+                    <a href="https://wa.me/918778548741" class="cta-button" style="background: var(--accent-orange);">Message Us</a>
+                </div>
+                <div class="booking-card">
+                    <h3>📧 Email</h3>
+                    <p>Send us your preferred time</p>
+                    <a href="mailto:bookings@creadentalclinic.com" class="cta-button" style="background: var(--accent-orange);">Email Now</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Form -->
+        <section class="services" style="background-color: white;">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Online Appointment Request</h2>
+                    <p>Fill in your details and we'll confirm your appointment</p>
+                </div>
+                <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.08);">
+                    <form onsubmit="handleBooking(event)">
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Full Name *</label>
+                            <input type="text" placeholder="Your Name" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Phone Number *</label>
+                            <input type="tel" placeholder="Your Phone" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Email</label>
+                            <input type="email" placeholder="Your Email" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Preferred Service *</label>
+                            <select required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem;">
+                                <option>Select a service</option>
+                                <option>General Dentistry</option>
+                                <option>Cosmetic Dentistry</option>
+                                <option>Restorative</option>
+                                <option>Orthodontics</option>
+                                <option>Pediatric</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 1.5rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Preferred Date *</label>
+                            <input type="date" required style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem;">
+                        </div>
+                        <div style="margin-bottom: 2rem;">
+                            <label style="display: block; margin-bottom: 0.5rem; color: var(--primary-teal); font-weight: 600;">Message</label>
+                            <textarea placeholder="Any specific concerns or questions?" style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 5px; font-size: 1rem; min-height: 100px; font-family: inherit;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; padding: 1rem; font-size: 1.1rem;">Request Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Info -->
+        <section class="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Get In Touch</h2>
+                    <p>We're here to help</p>
+                </div>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <h3>Address</h3>
+                        <p>16/1, 1st Floor<br>Sait Colony 1st Street<br>Above Freshco, Egmore<br>Chennai 600008</p>
+                        <a href="https://g.co/kgs/Z8guLVG" target="_blank">📍 View on Map</a>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <h3>Hours</h3>
+                        <p><strong>Mon-Sat:</strong> 9:00 AM - 8:00 PM<br><strong>Sun:</strong> By Appointment</p>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--accent-orange);">⏰ Valet Parking Available</p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <h3>Contact</h3>
+                        <p><a href="tel:+918778548741">📞 +91 8778548741</a><br><a href="https://wa.me/918778548741">💬 WhatsApp</a><br><a href="mailto:bookings@creadentalclinic.com">📧 Email</a></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Crea Dental Clinic. All rights reserved. | Creating exceptional dental experiences</p>
+    </footer>
+
+    <script>
+        function showPage(pageName) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            document.getElementById(pageName).classList.add('active');
+
+            // Update nav links
+            const navLinks = document.querySelectorAll('.nav-links a');
+            navLinks.forEach(link => link.classList.remove('active'));
+            const activeLink = document.getElementById('nav-' + pageName);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function handleBooking(event) {
+            event.preventDefault();
+            alert('Thank you for your appointment request! Our team will contact you shortly to confirm your booking.\n\nYou can also reach us at +91 8778548741 for immediate confirmation.');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
