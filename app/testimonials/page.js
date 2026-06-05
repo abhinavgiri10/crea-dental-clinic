@@ -211,14 +211,14 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-            {/* Sanjana Video */}
+           {/* Sanjana Video */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <video
                 className="w-full aspect-video bg-gray-900"
                 controls
                 controlsList="nodownload"
               >
-                <source src="/videos/SANJANA.mp4" type="video/mp4" />
+                <source src="/videos/testimonials/SANJANA.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4 bg-white">
@@ -227,31 +227,21 @@ export default function TestimonialsPage() {
               </div>
             </div>
 
-            {/* Gouri Roy Video */}
+            {/* Gouri Video */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <video
                 className="w-full aspect-video bg-gray-900"
                 controls
                 controlsList="nodownload"
               >
-                <source src="/videos/gouri roy.mp4" type="video/mp4" />
+                <source src="/videos/testimonials/Testimonial- Gouri.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4 bg-white">
-                <p className="font-semibold text-gray-900">Gouri Roy - Patient Testimonial</p>
+                <p className="font-semibold text-gray-900">Gouri - Patient Testimonial</p>
                 <p className="text-sm text-gray-600">Real patient experience</p>
               </div>
-            </div>
-
-            {/* Placeholder testimonial */}
-            <div
-              className="bg-gray-900 rounded-lg aspect-video flex items-center justify-center cursor-pointer hover:bg-opacity-80 transition-all group"
-            >
-              <div className="text-center">
-                <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">▶️</div>
-                <p className="text-white font-semibold">Patient Testimonial 3</p>
-              </div>
-            </div>
+            </div> 
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-lg p-8">
