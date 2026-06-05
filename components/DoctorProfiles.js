@@ -45,7 +45,7 @@ export default function DoctorProfiles() {
                 src={doctor.image}
                 alt={doctor.name}
                 fill
-                className="className="object-cover object-center group-hover:scale-110transition-transform duration-300"
+                className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
                 priority
               />
               {/* Overlay with Click Indicator */}
