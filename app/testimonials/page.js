@@ -202,7 +202,7 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Video Testimonials */}
+     {/* Video Testimonials */}
       <section className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="section-title">
@@ -211,7 +211,7 @@ export default function TestimonialsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-           {/* Sanjana Video */}
+            {/* Sanjana Video */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <video
                 className="w-full aspect-video bg-gray-900"
@@ -241,17 +241,17 @@ export default function TestimonialsPage() {
                 <p className="font-semibold text-gray-900">Gouri - Patient Testimonial</p>
                 <p className="text-sm text-gray-600">Real patient experience</p>
               </div>
-            </div> 
+            </div>
           </div>
 
           <div className="bg-green-50 border border-green-200 rounded-lg p-8">
             <h3 className="font-bold text-green-900 mb-2">✅ Patient Videos Added</h3>
             <p className="text-green-800 text-sm">
-              Sanjana and Gouri Roy's testimonials are now live! You can add more patient video testimonials by:
+              Sanjana and Gouri's testimonials are now live! You can add more patient video testimonials by uploading more MP4 videos to /public/videos/testimonials/
             </p>
-            <ul className="text-green-800 text-sm mt-3 ml-4">
-              <li>• Adding more MP4 videos to /public/videos/</li>
-              <li>• Uploading videos from your patients</li>
+          </div>
+        </div>
+      </section>
               <li>• Embedding YouTube or Vimeo videos</li>
               <li>• Recording new patient testimonials</li>
             </ul>
