@@ -7,11 +7,7 @@ const CLINIC_IMAGES = [
   '/images/clinic/2.JPG',
   '/images/clinic/3.JPG',
   '/images/clinic/4.JPG',
-  '/images/clinic/5.HEIC',
-  '/images/clinic/6.heic',
   '/images/clinic/7.JPG',
-  '/images/clinic/8.HEIC',
-  '/images/clinic/9.heic',
   '/images/clinic/10.jpg',
 ];
 
