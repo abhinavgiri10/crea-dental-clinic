@@ -252,13 +252,6 @@ export default function TestimonialsPage() {
           </div>
         </div>
       </section>
-              <li>• Embedding YouTube or Vimeo videos</li>
-              <li>• Recording new patient testimonials</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
       {/* Stats */}
       <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
