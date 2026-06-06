@@ -200,12 +200,12 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Speak directly with our appointment team. They'll find the perfect slot for you.
                   </p>
-                  
-                    href="tel:+918778548741"
+               
+             <a  href="tel:+918778548741"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
                     📞 Call +91 8778548741
-                  </a>
+                  </a>   
                 </div>
               )}
 
@@ -217,8 +217,8 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Send us a message on WhatsApp and we'll get back to you shortly with available appointment slots.
                   </p>
-                  
-                    href="https://wa.me/918778548741"
+
+               <a  href="https://wa.me/918778548741"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
@@ -237,13 +237,13 @@ export default function BookingPage() {
                     Follow us on Instagram and send a direct message to book your appointment.
                   </p>
                   
-                    href="https://instagram.com/creadentalclinic_"
+                 <a href="https://instagram.com/creadentalclinic_"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
                     📱 Message @creadentalclinic_
-                  </a>
+                  </a> 
                 </div>
               )}
 
