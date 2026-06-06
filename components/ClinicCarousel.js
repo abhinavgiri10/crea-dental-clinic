@@ -33,7 +33,7 @@ export default function ClinicCarousel() {
           style={{
             backgroundImage: `url(${image})`,
             backgroundSize: 'cover',
-            backgroundPosition: 'center',
+            backgroundPosition: index === 0 ? 'center 20%' : 'center',
           }}
         />
       ))}
