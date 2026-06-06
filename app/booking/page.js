@@ -32,18 +32,23 @@ export default function BookingPage() {
       [name]: value,
     }));
   };
-
-  const handleSubmit = async (e) => {
+const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch('/api/appointments', {
+      const response = await fetch('https://formspree.io/f/meewepkq', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          message: `Appointment requested for ${formData.date} at ${formData.time}`,
+        }),
       });
 
       if (response.ok) {
@@ -58,6 +63,8 @@ export default function BookingPage() {
           setActiveTab(null);
           setSubmitted(false);
         }, 3000);
+      } else {
+        alert('There was an error submitting your appointment. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -66,7 +73,6 @@ export default function BookingPage() {
       setLoading(false);
     }
   };
-
   // Check if the selected date is a Sunday
   const isSunday = (dateString) => {
     if (!dateString) return false;
