@@ -41,13 +41,16 @@ export default function DoctorProfiles() {
               className="relative h-80 bg-gradient-to-b from-primary to-primary-dark flex items-center justify-center overflow-hidden cursor-pointer group"
               onClick={() => setSelectedDoctor(doctor)}
             >
-              <Image
+            <Image
                 src={doctor.image}
                 alt={doctor.name}
                 fill
-               className="object-cover object-top group-hover:scale-110 transition-transform duration-300"
+                className={`object-cover group-hover:scale-110 transition-transform duration-300 ${
+                  doctor.id === 1 ? 'object-top' : ''
+                }`}
+                style={doctor.id === 2 ? { objectPosition: 'center 20%' } : {}}
                 priority
-              />
+              />  
               {/* Overlay with Click Indicator */}
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
                 <div className="text-white text-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -105,10 +108,10 @@ export default function DoctorProfiles() {
                   src={selectedDoctor.image}
                   alt={selectedDoctor.name}
                   fill
-                  className="object-cover object-top"
+                  className={`object-cover ${selectedDoctor.id === 1 ? 'object-top' : ''}`}
+                  style={selectedDoctor.id === 2 ? { objectPosition: 'center 20%' } : {}}
                 />
               </div>
-
               {/* Credentials */}
               <div className="mb-6">
                 <h3 className="text-xl font-bold text-primary mb-3">Professional Credentials</h3>
