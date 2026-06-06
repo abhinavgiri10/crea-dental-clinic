@@ -218,7 +218,7 @@ export default function TestimonialsPage() {
                 controls
                 controlsList="nodownload"
               >
-                <source src="/videos/testimonials/SANJANA.mp4" type="video/mp4" />
+                <source src="/videos/testimonials/Sanjana.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4 bg-white">
