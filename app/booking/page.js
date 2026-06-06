@@ -11,7 +11,7 @@ const AVAILABLE_TIMES = [
 ];
 
 export default function BookingPage() {
-  const [activeTab, setActiveTab] = useState(null); // null, 'call', 'whatsapp', 'instagram', 'form'
+  const [activeTab, setActiveTab] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -22,7 +22,6 @@ export default function BookingPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Get today's date
   const today = new Date().toISOString().split('T')[0];
 
   const handleChange = (e) => {
@@ -32,7 +31,8 @@ export default function BookingPage() {
       [name]: value,
     }));
   };
-const handleSubmit = async (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
@@ -73,7 +73,7 @@ const handleSubmit = async (e) => {
       setLoading(false);
     }
   };
-  // Check if the selected date is a Sunday
+
   const isSunday = (dateString) => {
     if (!dateString) return false;
     const date = new Date(dateString);
@@ -176,18 +176,31 @@ const handleSubmit = async (e) => {
               </p>
             </button>
           </div>
+        </div>
+      </section>
 
-          {/* Expanded Content */}
-          {activeTab && (
-            <div className="mt-12">
-              {/* Direct Call */}
+      {/* Modal Backdrop and Content */}
+      {activeTab && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setActiveTab(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold z-10"
+            >
+              ✕
+            </button>
+
+            <div className="p-8 md:p-12">
+              {/* Direct Call Modal */}
               {activeTab === 'call' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Call Us to Book</h3>
-                  <p className="text-gray-700 mb-6">
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📞</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Call Us to Book</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
                     Speak directly with our appointment team. They'll find the perfect slot for you.
                   </p>
-                  <a
+                  
                     href="tel:+918778548741"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
@@ -196,32 +209,34 @@ const handleSubmit = async (e) => {
                 </div>
               )}
 
-              {/* WhatsApp */}
+              {/* WhatsApp Modal */}
               {activeTab === 'whatsapp' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Message on WhatsApp</h3>
-                  <p className="text-gray-700 mb-6">
+                <div className="text-center">
+                  <div className="text-6xl mb-6">💬</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Message on WhatsApp</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
                     Send us a message on WhatsApp and we'll get back to you shortly with available appointment slots.
                   </p>
-                  <a
+                  
                     href="https://wa.me/918778548741"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
-                    💬 WhatsApp +91 8778548741
+                    💬 Message on WhatsApp
                   </a>
                 </div>
               )}
 
-              {/* Instagram DM */}
+              {/* Instagram Modal */}
               {activeTab === 'instagram' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
-                  <p className="text-gray-700 mb-6">
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📱</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
                     Follow us on Instagram and send a direct message to book your appointment.
                   </p>
-                  <a
+                  
                     href="https://instagram.com/creadentalclinic_"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -232,23 +247,23 @@ const handleSubmit = async (e) => {
                 </div>
               )}
 
-              {/* Online Form */}
+              {/* Online Form Modal */}
               {activeTab === 'form' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
+                <div>
                   {submitted ? (
                     <div className="text-center">
                       <div className="text-6xl mb-4">✅</div>
-                      <h3 className="text-2xl font-bold text-primary mb-3">Appointment Requested!</h3>
-                      <p className="text-gray-700 mb-2">
+                      <h3 className="text-3xl font-bold text-primary mb-3">Appointment Requested!</h3>
+                      <p className="text-gray-700 mb-2 text-lg">
                         Thank you for booking with us. Our team will contact you shortly at <strong>{formData.phone}</strong>.
                       </p>
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-gray-600 mt-4">
                         For immediate assistance, call <a href="tel:+918778548741" className="text-primary font-bold hover:underline">+91 8778548741</a>
                       </p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit}>
-                      <h3 className="text-2xl font-bold text-primary mb-6">Fill Your Details</h3>
+                      <h3 className="text-3xl font-bold text-primary mb-8 text-center">Book Your Appointment</h3>
 
                       {/* Name */}
                       <div className="mb-6">
@@ -299,7 +314,7 @@ const handleSubmit = async (e) => {
 
                       {/* Time */}
                       {formData.date && (
-                        <div className="mb-6">
+                        <div className="mb-8">
                           <label className="block font-semibold text-gray-900 mb-3">Preferred Time (10:00 AM - 8:00 PM) *</label>
                           <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-48 overflow-y-auto">
                             {AVAILABLE_TIMES.map((time) => (
@@ -335,9 +350,9 @@ const handleSubmit = async (e) => {
                 </div>
               )}
             </div>
-          )}
+          </div>
         </div>
-      </section>
+      )}
 
       {/* Hours & Info */}
       <section className="bg-white py-16 md:py-24">
