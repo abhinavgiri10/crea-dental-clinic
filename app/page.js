@@ -1,4 +1,3 @@
-// rebuild test
 import Link from 'next/link';
 import Image from 'next/image';
 import Gallery from '@/components/Gallery';
@@ -7,36 +6,62 @@ import TestimonialsPreview from '@/components/TestimonialsPreview';
 import SocialActivities from '@/components/SocialActivities';
 import EquipmentShowcase from '@/components/EquipmentShowcase';
 import DoctorProfiles from '@/components/DoctorProfiles';
+import ClinicCarousel from '@/components/ClinicCarousel';
 
 export default function Home() {
 
   return (
     <>
+      {/* Top Info Bar */}
+      <div className="bg-primary text-white">
+        <div className="max-w-7xl mx-auto px-4 py-3">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center text-sm md:text-base">
+            <a href="tel:+918778548741" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <span>📞</span>
+              <span>+91 8778548741</span>
+            </a>
+            <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <span>💬</span>
+              <span>WhatsApp</span>
+            </a>
+            <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <span>📱</span>
+              <span>Instagram</span>
+            </a>
+            <div className="flex items-center gap-2">
+              <span>⏰</span>
+              <span>Mon-Sun: 10 AM - 8 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Professional Hero Section with Doctor Profiles */}
       <section className="bg-white py-0 md:py-0">
         {/* Main Hero */}
         <div className="relative bg-gradient-to-r from-primary via-primary to-primary-dark text-white overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl"></div>
+          <ClinicCarousel />
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl z-20"></div>
+          <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-accent opacity-5 rounded-full blur-3xl z-20"></div>
 
-          <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 relative z-10">
-            <div className="text-center mb-12">
-              <p className="text-accent font-semibold text-sm md:text-base mb-2 tracking-widest uppercase">Welcome to</p>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+          <div className="max-w-7xl mx-auto px-4 py-20 md:py-32 relative z-30">
+            <div className="text-center mb-16">
+              <p className="text-accent font-semibold text-sm md:text-base mb-4 tracking-widest uppercase">Welcome to</p>
+              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight drop-shadow-lg">
                 Crea Dental Clinic
               </h1>
-              <p className="text-lg md:text-xl mb-2 opacity-95">
+              <p className="text-xl md:text-2xl mb-4 opacity-95 drop-shadow-lg">
                 <span className="font-semibold text-accent">Your Smile, Our Passion</span>
               </p>
-              <p className="text-base md:text-lg opacity-90 max-w-3xl mx-auto mb-8">
+              <p className="text-lg md:text-xl opacity-90 max-w-3xl mx-auto mb-12 drop-shadow-lg">
                 Advanced dental solutions with compassionate care. From smile reconstruction to sleep dentistry, we transform smiles and restore confidence.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/booking" className="bg-accent hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 hover:shadow-lg inline-block">
+                <Link href="/booking" className="bg-accent hover:bg-opacity-90 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover:shadow-lg inline-block drop-shadow-lg">
                   Book Appointment
                 </Link>
-                <Link href="/services" className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 border border-white">
+                <Link href="/services" className="bg-white bg-opacity-20 hover:bg-opacity-30 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all duration-300 border border-white drop-shadow-lg">
                   Explore Services
                 </Link>
               </div>
@@ -124,7 +149,7 @@ export default function Home() {
         </div>
       </section>
 
-{/* Testimonials Preview */}
+      {/* Testimonials Preview */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
