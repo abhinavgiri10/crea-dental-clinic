@@ -244,12 +244,6 @@ export default function TestimonialsPage() {
             </div>
           </div>
 
-          <div className="bg-green-50 border border-green-200 rounded-lg p-8">
-            <h3 className="font-bold text-green-900 mb-2">✅ Patient Videos Added</h3>
-            <p className="text-green-800 text-sm">
-              Sanjana and Gouri's testimonials are now live! You can add more patient video testimonials by uploading more MP4 videos to /public/videos/testimonials/
-            </p>
-          </div>
         </div>
       </section>
       {/* Stats */}
