@@ -1,0 +1,417 @@
+'use client';
+
+import { useState } from 'react';
+
+const AVAILABLE_TIMES = [
+  '10:00 AM', '10:30 AM', '11:00 AM', '11:30 AM',
+  '12:00 PM', '12:30 PM', '01:00 PM', '01:30 PM',
+  '02:00 PM', '02:30 PM', '03:00 PM', '03:30 PM',
+  '04:00 PM', '04:30 PM', '05:00 PM', '05:30 PM',
+  '06:00 PM', '06:30 PM', '07:00 PM', '07:30 PM',
+];
+
+export default function BookingPage() {
+  const [activeTab, setActiveTab] = useState(null);
+  const [formData, setFormData] = useState({
+    name: '',
+    age: '',
+    phone: '',
+    date: '',
+    time: '',
+    area: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const today = new Date().toISOString().split('T')[0];
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await fetch('https://formspree.io/f/meewepkq', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          age: formData.age,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          area: formData.area,
+          message: `Appointment requested for ${formData.date} at ${formData.time}`,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        setFormData({
+          name: '',
+          age: '',
+          phone: '',
+          date: '',
+          time: '',
+          area: '',
+        });
+        setTimeout(() => {
+          setActiveTab(null);
+          setSubmitted(false);
+        }, 3000);
+      } else {
+        alert('There was an error submitting your appointment. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('There was an error submitting your appointment. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const isSunday = (dateString) => {
+    if (!dateString) return false;
+    const date = new Date(dateString);
+    return date.getDay() === 0;
+  };
+
+  const selectedDateIsSunday = isSunday(formData.date);
+
+  const CallButton = () => (
+    <a href={"tel:+918778548741"} className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+      Call Now
+    </a>
+  );
+
+  const WhatsAppButton = () => (
+    <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+      Message on WhatsApp
+    </a>
+  );
+
+  const InstagramButton = () => (
+    <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+      Message on Instagram
+    </a>
+  );
+
+  return (
+    <>
+      <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-12 md:py-20">
+        <div className="max-w-7xl mx-auto px-4 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Book Your Appointment</h1>
+          <p className="text-lg opacity-90 max-w-2xl mx-auto">
+            Choose your preferred way to schedule your visit at Crea Dental Clinic
+          </p>
+        </div>
+      </section>
+
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4">
+          <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Select How to Book</h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <button
+              onClick={() => setActiveTab(activeTab === 'call' ? null : 'call')}
+              className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
+                activeTab === 'call'
+                  ? 'bg-primary text-white border-primary shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary hover:shadow-md'
+              }`}
+            >
+              <div className="text-5xl mb-4">📞</div>
+              <h3 className="text-xl font-bold mb-2">Direct Call</h3>
+              <p className={`text-sm ${activeTab === 'call' ? 'text-white opacity-90' : 'text-gray-600'}`}>
+                Speak with our team directly
+              </p>
+              <p className={`text-lg font-bold mt-3 ${activeTab === 'call' ? 'text-white' : 'text-accent'}`}>
+                +91 8778548741
+              </p>
+            </button>
+
+            <button
+              onClick={() => setActiveTab(activeTab === 'whatsapp' ? null : 'whatsapp')}
+              className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
+                activeTab === 'whatsapp'
+                  ? 'bg-primary text-white border-primary shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary hover:shadow-md'
+              }`}
+            >
+              <div className="text-5xl mb-4">💬</div>
+              <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
+              <p className={`text-sm ${activeTab === 'whatsapp' ? 'text-white opacity-90' : 'text-gray-600'}`}>
+                Quick booking via WhatsApp
+              </p>
+              <p className={`text-lg font-bold mt-3 ${activeTab === 'whatsapp' ? 'text-white' : 'text-accent'}`}>
+                Message Us
+              </p>
+            </button>
+
+            <button
+              onClick={() => setActiveTab(activeTab === 'instagram' ? null : 'instagram')}
+              className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
+                activeTab === 'instagram'
+                  ? 'bg-primary text-white border-primary shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary hover:shadow-md'
+              }`}
+            >
+              <div className="text-5xl mb-4">📱</div>
+              <h3 className="text-xl font-bold mb-2">Instagram DM</h3>
+              <p className={`text-sm ${activeTab === 'instagram' ? 'text-white opacity-90' : 'text-gray-600'}`}>
+                DM us on Instagram
+              </p>
+              <p className={`text-lg font-bold mt-3 ${activeTab === 'instagram' ? 'text-white' : 'text-accent'}`}>
+                @creadentalclinic_
+              </p>
+            </button>
+
+            <button
+              onClick={() => setActiveTab(activeTab === 'form' ? null : 'form')}
+              className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
+                activeTab === 'form'
+                  ? 'bg-primary text-white border-primary shadow-lg'
+                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary hover:shadow-md'
+              }`}
+            >
+              <div className="text-5xl mb-4">📋</div>
+              <h3 className="text-xl font-bold mb-2">Online Form</h3>
+              <p className={`text-sm ${activeTab === 'form' ? 'text-white opacity-90' : 'text-gray-600'}`}>
+                Fill out the booking form
+              </p>
+              <p className={`text-lg font-bold mt-3 ${activeTab === 'form' ? 'text-white' : 'text-accent'}`}>
+                Book Now
+              </p>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {activeTab && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button
+              onClick={() => setActiveTab(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold z-10"
+            >
+              X
+            </button>
+
+            <div className="p-8 md:p-12">
+              {activeTab === 'call' && (
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📞</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Call Us to Book</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
+                    Speak directly with our appointment team. They will find the perfect slot for you.
+                  </p>
+                  <CallButton />
+                </div>
+              )}
+
+              {activeTab === 'whatsapp' && (
+                <div className="text-center">
+                  <div className="text-6xl mb-6">💬</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Message on WhatsApp</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
+                    Send us a message on WhatsApp and we will get back to you shortly with available appointment slots.
+                  </p>
+                  <WhatsAppButton />
+                </div>
+              )}
+
+              {activeTab === 'instagram' && (
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📱</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
+                    Follow us on Instagram and send a direct message to book your appointment.
+                  </p>
+                  <InstagramButton />
+                </div>
+              )}
+
+              {activeTab === 'form' && (
+                <div>
+                  {submitted ? (
+                    <div className="text-center">
+                      <div className="text-6xl mb-4">✅</div>
+                      <h3 className="text-3xl font-bold text-primary mb-3">Appointment Requested</h3>
+                      <p className="text-gray-700 mb-2 text-lg">
+                        Thank you for booking with us. Our team will contact you shortly.
+                      </p>
+                      <p className="text-sm text-gray-600 mt-4">
+                        For immediate assistance, call +91 8778548741
+                      </p>
+                    </div>
+                  ) : (
+                    <form onSubmit={handleSubmit}>
+                      <h3 className="text-3xl font-bold text-primary mb-8 text-center">Book Your Appointment</h3>
+
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Full Name *</label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={formData.name}
+                          onChange={handleChange}
+                          placeholder="Enter your full name"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Age *</label>
+                        <input
+                          type="number"
+                          name="age"
+                          value={formData.age}
+                          onChange={handleChange}
+                          placeholder="Enter your age"
+                          required
+                          min="1"
+                          max="120"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Phone Number *</label>
+                        <input
+                          type="tel"
+                          name="phone"
+                          value={formData.phone}
+                          onChange={handleChange}
+                          placeholder="10-digit mobile number"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Preferred Date *</label>
+                        <input
+                          type="date"
+                          name="date"
+                          value={formData.date}
+                          onChange={handleChange}
+                          min={today}
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                        {selectedDateIsSunday && (
+                          <p className="text-sm text-orange-600 mt-2">
+                            Note: Sunday appointments require prior booking. Please contact us directly.
+                          </p>
+                        )}
+                      </div>
+
+                      {formData.date && (
+                        <div className="mb-8">
+                          <label className="block font-semibold text-gray-900 mb-3">Preferred Time (10:00 AM - 8:00 PM) *</label>
+                          <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-48 overflow-y-auto">
+                            {AVAILABLE_TIMES.map((time) => (
+                              <button
+                                key={time}
+                                type="button"
+                                onClick={() => setFormData({ ...formData, time })}
+                                disabled={selectedDateIsSunday}
+                                className={`py-2 px-2 rounded-lg transition-all text-sm font-medium ${
+                                  formData.time === time
+                                    ? 'bg-accent text-white'
+                                    : selectedDateIsSunday
+                                    ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+                                    : 'bg-gray-100 text-gray-900 hover:bg-primary hover:text-white'
+                                }`}
+                              >
+                                {time}
+                              </button>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Area or Location *</label>
+                        <input
+                          type="text"
+                          name="area"
+                          value={formData.area}
+                          onChange={handleChange}
+                          placeholder="Enter your area (e.g., Egmore, T. Nagar, Mylapore)"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={loading || selectedDateIsSunday}
+                        className="w-full bg-primary hover:bg-primary-dark disabled:bg-gray-400 text-white py-3 rounded-lg font-bold text-lg transition-all duration-300"
+                      >
+                        {loading ? 'Submitting...' : 'Request Appointment'}
+                      </button>
+                    </form>
+                  )}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+      <section className="bg-white py-16 md:py-24">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-lg text-center">
+              <div className="text-5xl mb-4">⏰</div>
+              <h3 className="text-xl font-bold text-primary mb-4">Clinic Hours</h3>
+              <p className="text-gray-700 mb-3">
+                <strong>Monday - Saturday:</strong><br />
+                10:00 AM - 8:00 PM
+              </p>
+              <p className="text-gray-700">
+                <strong>Sunday:</strong><br />
+                <span className="text-orange-600">By Prior Booking Only</span>
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-lg text-center">
+              <div className="text-5xl mb-4">📍</div>
+              <h3 className="text-xl font-bold text-primary mb-4">Address</h3>
+              <p className="text-gray-700 text-sm">
+                16/1, 1st Floor, Sait Colony 1st Street<br />
+                Above Freshco, Egmore<br />
+                Chennai 600008
+              </p>
+            </div>
+
+            <div className="bg-gray-50 p-8 rounded-lg text-center">
+              <div className="text-5xl mb-4">📞</div>
+              <h3 className="text-xl font-bold text-primary mb-4">Contact</h3>
+              <p className="text-gray-700">
+                <a href="tel:+918778548741" className="block text-primary font-bold hover:underline mb-2">
+                  +91 8778548741
+                </a>
+                <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="block text-primary font-bold hover:underline">
+                  WhatsApp Message
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
