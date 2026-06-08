@@ -21,7 +21,8 @@ export default function RootLayout({ children }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#0E95B8" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🦷</text></svg>" />
-    {/* Google Analytics */}
+
+        {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS5ST8GQ8Z"></script>
         <script dangerouslySetInnerHTML={{__html: `
           window.dataLayer = window.dataLayer || [];
