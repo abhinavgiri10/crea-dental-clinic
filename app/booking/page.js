@@ -11,17 +11,20 @@ const AVAILABLE_TIMES = [
 ];
 
 export default function BookingPage() {
-  const [activeTab, setActiveTab] = useState(null);
+  const [activeTab, setActiveTab] = useState(null); // null, 'call', 'whatsapp', 'instagram', 'form'
   const [formData, setFormData] = useState({
     name: '',
+    age: '',
     phone: '',
     date: '',
     time: '',
+    area: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  // Get today's date
   const today = new Date().toISOString().split('T')[0];
 
   const handleChange = (e) => {
@@ -44,9 +47,11 @@ export default function BookingPage() {
         },
         body: JSON.stringify({
           name: formData.name,
+          age: formData.age,
           phone: formData.phone,
           date: formData.date,
           time: formData.time,
+          area: formData.area,
           message: `Appointment requested for ${formData.date} at ${formData.time}`,
         }),
       });
@@ -55,9 +60,11 @@ export default function BookingPage() {
         setSubmitted(true);
         setFormData({
           name: '',
+          age: '',
           phone: '',
           date: '',
           time: '',
+          area: '',
         });
         setTimeout(() => {
           setActiveTab(null);
@@ -74,6 +81,7 @@ export default function BookingPage() {
     }
   };
 
+  // Check if the selected date is a Sunday
   const isSunday = (dateString) => {
     if (!dateString) return false;
     const date = new Date(dateString);
@@ -200,12 +208,12 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Speak directly with our appointment team. They'll find the perfect slot for you.
                   </p>
-               
-             <a  href="tel:+918778548741"
+                  
+                    href="tel:+918778548741"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
                     📞 Call +91 8778548741
-                  </a>   
+                  </a>
                 </div>
               )}
 
@@ -217,8 +225,8 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Send us a message on WhatsApp and we'll get back to you shortly with available appointment slots.
                   </p>
-
-               <a  href="https://wa.me/918778548741"
+                  
+                    href="https://wa.me/918778548741"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
@@ -237,13 +245,13 @@ export default function BookingPage() {
                     Follow us on Instagram and send a direct message to book your appointment.
                   </p>
                   
-                 <a href="https://instagram.com/creadentalclinic_"
+                    href="https://instagram.com/creadentalclinic_"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
                   >
                     📱 Message @creadentalclinic_
-                  </a> 
+                  </a>
                 </div>
               )}
 
@@ -275,6 +283,22 @@ export default function BookingPage() {
                           onChange={handleChange}
                           placeholder="Enter your full name"
                           required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
+                      {/* Age */}
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Age *</label>
+                        <input
+                          type="number"
+                          name="age"
+                          value={formData.age}
+                          onChange={handleChange}
+                          placeholder="Enter your age"
+                          required
+                          min="1"
+                          max="120"
                           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
                         />
                       </div>
@@ -337,6 +361,20 @@ export default function BookingPage() {
                           </div>
                         </div>
                       )}
+
+                      {/* Area */}
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Area/Location *</label>
+                        <input
+                          type="text"
+                          name="area"
+                          value={formData.area}
+                          onChange={handleChange}
+                          placeholder="Enter your area (e.g., Egmore, T. Nagar, Mylapore)"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
 
                       <button
                         type="submit"
