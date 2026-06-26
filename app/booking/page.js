@@ -11,18 +11,19 @@ const AVAILABLE_TIMES = [
 ];
 
 export default function BookingPage() {
-  const [activeTab, setActiveTab] = useState(null); // null, 'call', 'whatsapp', 'instagram', 'form'
+  const [activeTab, setActiveTab] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
+    age: '',
     phone: '',
     date: '',
     time: '',
+    area: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Get today's date
   const today = new Date().toISOString().split('T')[0];
 
   const handleChange = (e) => {
@@ -38,26 +39,38 @@ export default function BookingPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/appointments', {
+      const response = await fetch('https://formspree.io/f/meewepkq', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          name: formData.name,
+          age: formData.age,
+          phone: formData.phone,
+          date: formData.date,
+          time: formData.time,
+          area: formData.area,
+          message: `Appointment requested for ${formData.date} at ${formData.time}`,
+        }),
       });
 
       if (response.ok) {
         setSubmitted(true);
         setFormData({
           name: '',
+          age: '',
           phone: '',
           date: '',
           time: '',
+          area: '',
         });
         setTimeout(() => {
           setActiveTab(null);
           setSubmitted(false);
         }, 3000);
+      } else {
+        alert('There was an error submitting your appointment. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -67,7 +80,6 @@ export default function BookingPage() {
     }
   };
 
-  // Check if the selected date is a Sunday
   const isSunday = (dateString) => {
     if (!dateString) return false;
     const date = new Date(dateString);
@@ -78,7 +90,6 @@ export default function BookingPage() {
 
   return (
     <>
-      {/* Hero */}
       <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-12 md:py-20">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">Book Your Appointment</h1>
@@ -88,13 +99,11 @@ export default function BookingPage() {
         </div>
       </section>
 
-      {/* Main Booking Options */}
       <section className="py-16 md:py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Select How to Book</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Direct Call */}
             <button
               onClick={() => setActiveTab(activeTab === 'call' ? null : 'call')}
               className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
@@ -113,7 +122,6 @@ export default function BookingPage() {
               </p>
             </button>
 
-            {/* WhatsApp */}
             <button
               onClick={() => setActiveTab(activeTab === 'whatsapp' ? null : 'whatsapp')}
               className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
@@ -132,7 +140,6 @@ export default function BookingPage() {
               </p>
             </button>
 
-            {/* Instagram DM */}
             <button
               onClick={() => setActiveTab(activeTab === 'instagram' ? null : 'instagram')}
               className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
@@ -151,7 +158,6 @@ export default function BookingPage() {
               </p>
             </button>
 
-            {/* Book Online Form */}
             <button
               onClick={() => setActiveTab(activeTab === 'form' ? null : 'form')}
               className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
@@ -170,81 +176,76 @@ export default function BookingPage() {
               </p>
             </button>
           </div>
+        </div>
+      </section>
 
-          {/* Expanded Content */}
-          {activeTab && (
-            <div className="mt-12">
-              {/* Direct Call */}
+      {activeTab && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-lg shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+            <button
+              onClick={() => setActiveTab(null)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 text-3xl font-bold z-10"
+            >
+              X
+            </button>
+
+            <div className="p-8 md:p-12">
               {activeTab === 'call' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Call Us to Book</h3>
-                  <p className="text-gray-700 mb-6">
-                    Speak directly with our appointment team. They'll find the perfect slot for you.
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📞</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Call Us to Book</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
+                    Speak directly with our appointment team. They will find the perfect slot for you.
                   </p>
-                  <a
-                    href="tel:+918778548741"
-                    className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
-                  >
-                    📞 Call +91 8778548741
+                  <a href="tel:+918778548741" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                    Call Now
                   </a>
                 </div>
               )}
 
-              {/* WhatsApp */}
               {activeTab === 'whatsapp' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Message on WhatsApp</h3>
-                  <p className="text-gray-700 mb-6">
-                    Send us a message on WhatsApp and we'll get back to you shortly with available appointment slots.
+                <div className="text-center">
+                  <div className="text-6xl mb-6">💬</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Message on WhatsApp</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
+                    Send us a message on WhatsApp and we will get back to you shortly with available appointment slots.
                   </p>
-                  <a
-                    href="https://wa.me/918778548741"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
-                  >
-                    💬 WhatsApp +91 8778548741
+                  <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                    Message on WhatsApp
                   </a>
                 </div>
               )}
 
-              {/* Instagram DM */}
               {activeTab === 'instagram' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-                  <h3 className="text-2xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
-                  <p className="text-gray-700 mb-6">
+                <div className="text-center">
+                  <div className="text-6xl mb-6">📱</div>
+                  <h3 className="text-3xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
+                  <p className="text-gray-700 mb-8 text-lg">
                     Follow us on Instagram and send a direct message to book your appointment.
                   </p>
-                  <a
-                    href="https://instagram.com/creadentalclinic_"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300"
-                  >
-                    📱 Message @creadentalclinic_
+                  <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                    Message on Instagram
                   </a>
                 </div>
               )}
 
-              {/* Online Form */}
               {activeTab === 'form' && (
-                <div className="bg-white rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
+                <div>
                   {submitted ? (
                     <div className="text-center">
                       <div className="text-6xl mb-4">✅</div>
-                      <h3 className="text-2xl font-bold text-primary mb-3">Appointment Requested!</h3>
-                      <p className="text-gray-700 mb-2">
-                        Thank you for booking with us. Our team will contact you shortly at <strong>{formData.phone}</strong>.
+                      <h3 className="text-3xl font-bold text-primary mb-3">Appointment Requested</h3>
+                      <p className="text-gray-700 mb-2 text-lg">
+                        Thank you for booking with us. Our team will contact you shortly.
                       </p>
-                      <p className="text-sm text-gray-600">
-                        For immediate assistance, call <a href="tel:+918778548741" className="text-primary font-bold hover:underline">+91 8778548741</a>
+                      <p className="text-sm text-gray-600 mt-4">
+                        For immediate assistance, call +91 8778548741
                       </p>
                     </div>
                   ) : (
                     <form onSubmit={handleSubmit}>
-                      <h3 className="text-2xl font-bold text-primary mb-6">Fill Your Details</h3>
+                      <h3 className="text-3xl font-bold text-primary mb-8 text-center">Book Your Appointment</h3>
 
-                      {/* Name */}
                       <div className="mb-6">
                         <label className="block font-semibold text-gray-900 mb-2">Full Name *</label>
                         <input
@@ -258,7 +259,21 @@ export default function BookingPage() {
                         />
                       </div>
 
-                      {/* Phone */}
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Age *</label>
+                        <input
+                          type="number"
+                          name="age"
+                          value={formData.age}
+                          onChange={handleChange}
+                          placeholder="Enter your age"
+                          required
+                          min="1"
+                          max="120"
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
                       <div className="mb-6">
                         <label className="block font-semibold text-gray-900 mb-2">Phone Number *</label>
                         <input
@@ -272,7 +287,6 @@ export default function BookingPage() {
                         />
                       </div>
 
-                      {/* Date */}
                       <div className="mb-6">
                         <label className="block font-semibold text-gray-900 mb-2">Preferred Date *</label>
                         <input
@@ -286,14 +300,13 @@ export default function BookingPage() {
                         />
                         {selectedDateIsSunday && (
                           <p className="text-sm text-orange-600 mt-2">
-                            ⚠️ Sunday appointments require prior booking. Please contact us directly.
+                            Note: Sunday appointments require prior booking. Please contact us directly.
                           </p>
                         )}
                       </div>
 
-                      {/* Time */}
                       {formData.date && (
-                        <div className="mb-6">
+                        <div className="mb-8">
                           <label className="block font-semibold text-gray-900 mb-3">Preferred Time (10:00 AM - 8:00 PM) *</label>
                           <div className="grid grid-cols-3 md:grid-cols-4 gap-2 max-h-48 overflow-y-auto">
                             {AVAILABLE_TIMES.map((time) => (
@@ -317,6 +330,19 @@ export default function BookingPage() {
                         </div>
                       )}
 
+                      <div className="mb-6">
+                        <label className="block font-semibold text-gray-900 mb-2">Area or Location *</label>
+                        <input
+                          type="text"
+                          name="area"
+                          value={formData.area}
+                          onChange={handleChange}
+                          placeholder="Enter your area (e.g., Egmore, T. Nagar, Mylapore)"
+                          required
+                          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-primary transition-colors"
+                        />
+                      </div>
+
                       <button
                         type="submit"
                         disabled={loading || selectedDateIsSunday}
@@ -329,15 +355,13 @@ export default function BookingPage() {
                 </div>
               )}
             </div>
-          )}
+          </div>
         </div>
-      </section>
+      )}
 
-      {/* Hours & Info */}
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Hours */}
             <div className="bg-gray-50 p-8 rounded-lg text-center">
               <div className="text-5xl mb-4">⏰</div>
               <h3 className="text-xl font-bold text-primary mb-4">Clinic Hours</h3>
@@ -351,7 +375,6 @@ export default function BookingPage() {
               </p>
             </div>
 
-            {/* Address */}
             <div className="bg-gray-50 p-8 rounded-lg text-center">
               <div className="text-5xl mb-4">📍</div>
               <h3 className="text-xl font-bold text-primary mb-4">Address</h3>
@@ -362,7 +385,6 @@ export default function BookingPage() {
               </p>
             </div>
 
-            {/* Contact */}
             <div className="bg-gray-50 p-8 rounded-lg text-center">
               <div className="text-5xl mb-4">📞</div>
               <h3 className="text-xl font-bold text-primary mb-4">Contact</h3>

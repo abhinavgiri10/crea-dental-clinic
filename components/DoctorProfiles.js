@@ -19,7 +19,7 @@ const DOCTORS = [
     title: 'MDS, Implantologist & Maxillofacial Prosthodontist',
     experience: 'Academic Excellence',
     specialization: 'Sleep Dentistry, Kids Dentistry, Prosthodontics',
-    image: '/images/doctors/monalee.jpg',
+    image: '/images/doctors/Monalee.jpg',
     bio: 'Dr. Khaidem Monalee Devi is an accomplished prosthodontist with exceptional academic credentials. Her expertise spans sleep dentistry, pediatric care, and advanced prosthodontic procedures. Known for her compassionate approach, she specializes in making dental experiences comfortable for anxious patients and children, ensuring every visit is a positive one.'
   }
 ];
@@ -45,7 +45,10 @@ export default function DoctorProfiles() {
                 src={doctor.image}
                 alt={doctor.name}
                 fill
-                className="object-cover object-center group-hover:scale-110 transition-transform duration-300"
+                className={`object-cover group-hover:scale-110 transition-transform duration-300 ${
+                  doctor.id === 1 ? 'object-top' : ''
+                }`}
+                style={doctor.id === 2 ? { objectPosition: 'center 20%' } : {}}
                 priority
               />
               {/* Overlay with Click Indicator */}
@@ -105,7 +108,8 @@ export default function DoctorProfiles() {
                   src={selectedDoctor.image}
                   alt={selectedDoctor.name}
                   fill
-                  className="object-cover object-center"
+                  className={`object-cover ${selectedDoctor.id === 1 ? 'object-top' : ''}`}
+                  style={selectedDoctor.id === 2 ? { objectPosition: 'center 20%' } : {}}
                 />
               </div>
 

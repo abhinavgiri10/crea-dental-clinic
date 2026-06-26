@@ -17,11 +17,22 @@ export default function Header() {
     <header className="bg-white sticky top-0 z-1000 shadow-sm">
       {/* Top Bar with Contact Info */}
       <div className="bg-primary text-white text-sm py-2">
-        <div className="max-w-7xl mx-auto px-4 flex justify-between items-center flex-wrap gap-2">
-          <div className="flex gap-4 items-center text-xs md:text-sm">
-            <a href="tel:+918778548741" className="hover:text-accent transition-colors">📞 +91 8778548741</a>
-            <a href="https://wa.me/918778548741" className="hover:text-accent transition-colors">💬 WhatsApp</a>
-            <span>⏰ Mon-Sun: 10 AM - 8 PM</span>
+        <div className="max-w-7xl mx-auto px-4 flex justify-center items-center flex-wrap gap-4 md:gap-8">
+          <a href="tel:+918778548741" className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
+            <span>📞</span>
+            <span>+91 8778548741</span>
+          </a>
+          <a href="https://wa.me/918778548741" className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
+            <span>💬</span>
+            <span>WhatsApp</span>
+          </a>
+          <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
+            <span>📱</span>
+            <span>Instagram</span>
+          </a>
+          <div className="flex items-center gap-2 text-xs md:text-sm">
+            <span>⏰</span>
+            <span>Mon-Sun: 10 AM - 8 PM</span>
           </div>
         </div>
       </div>
@@ -29,18 +40,18 @@ export default function Header() {
       {/* Main Navigation */}
       <nav className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo & Clinic Name */}
-        <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+        <Link href="/" className="flex items-center gap-6 hover:opacity-80 transition-opacity">
           <Image
             src="/images/crea-dental-logo.jpg"
             alt="Crea Dental Clinic Logo"
-            width={80}
-            height={80}
+            width={150}
+            height={150}
             className="rounded-lg object-contain"
             priority
           />
           <div className="hidden sm:block">
-            <div className="font-bold text-primary text-lg">CREA DENTAL</div>
-            <div className="text-accent text-xs font-semibold">Your Smile, Our Passion</div>
+            <div className="font-bold text-primary text-4xl">CREA DENTAL</div>
+            <div className="text-accent text-lg font-semibold">Your Smile, Our Passion</div>
           </div>
         </Link>
 

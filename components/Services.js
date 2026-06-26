@@ -5,9 +5,12 @@ import Image from 'next/image';
 const AnimatedIcon = ({ id }) => {
   // Mapping of service IDs to logo filenames
   const logoMap = {
-    1: 'implant-&-crown-logo.png', // Dental Implants
-    4: 'kids-dentistry-logo.png', // Kids Dentistry
-    5: 'full-mouth-rehabilitation-logo.png', // Full Mouth Rehabilitation
+    1: 'dental-implants.svg', // Dental Implants
+    2: 'sleep-dentistry.svg', // Sleep Dentistry
+    3: 'conscious-sedation.svg', // Conscious Sedation
+    4: 'kids-dentistry.svg', // Kids Dentistry
+    5: 'full-mouth-rehabilitation.svg', // Full Mouth Rehabilitation
+    6: 'smile-reconstruction.svg', // Smile Reconstruction
     7: 'teeth-whitening-logo.png', // Teeth Whitening
     8: 'cosmetic-dentistry-logo.png', // Teeth Jewels
     13: 'tooth-extraction-logo.png', // Tooth Extractions
@@ -523,7 +526,7 @@ export default function Services({ limit }) {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
       {displayed.map((service) => (
         <div key={service.id} className="group bg-white rounded-lg p-6 border-l-4 border-accent hover:shadow-lg transition-all duration-300 hover:translate-y-[-4px]">
-          {service.id === 1 || service.id === 4 || service.id === 5 || service.id === 7 || service.id === 8 || service.id === 13 || service.id === 14 || service.id === 15 || service.id === 16 || service.id === 19 || service.id === 21 || service.id === 22 ? (
+          {service.id === 1 || service.id === 2 || service.id === 3 || service.id === 4 || service.id === 5 || service.id === 6 || service.id === 7 || service.id === 8 || service.id === 13 || service.id === 14 || service.id === 15 || service.id === 16 || service.id === 19 || service.id === 20 || service.id === 21 || service.id === 22 ? (
             <div className="mb-4 group-hover:scale-110 transition-transform duration-300">
               <AnimatedIcon id={service.id} />
             </div>

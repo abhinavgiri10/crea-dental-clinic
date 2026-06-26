@@ -11,6 +11,9 @@ const nextConfig = {
   },
   compress: true,
   swcMinify: true,
+  typescript: {
+    ignoreBuildErrors: false,
+  },
 };
 
 module.exports = nextConfig;

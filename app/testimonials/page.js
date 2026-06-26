@@ -147,6 +147,20 @@ const ALL_TESTIMONIALS = [
     rating: 5,
     text: 'Doctor Abhinav Giri is a caring and good dentist. He understood my problem and treated me very well.',
   },
+  {
+    id: 21,
+    name: 'Raghav Babu',
+    role: 'Patient',
+    rating: 5,
+    text: 'Dr Abhinav talked me through my options and wasn\'t very pushy. I appreciated the transparency and professionalism. Appointment was on time, respecting my time. Highly recommended.',
+  },
+  {
+    id: 22,
+    name: 'Vignesh Rajagoplan',
+    role: 'Patient',
+    rating: 5,
+    text: 'Great clinic for dental problems. Dr. Giri is very professional and guides patients through the procedure well. Clean facilities overall 10/10',
+  },
 ];
 
 export default function TestimonialsPage() {
@@ -170,16 +184,90 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
+      {/* Image Testimonials Section */}
+      <section className="py-16 md:py-24 bg-light-bg">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Patient Testimonial Photos</h2>
+            <p className="text-gray-600 text-lg">Meet some of our happy patients</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Another Testimonial */}
+            <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <video
+                className="w-full h-64 bg-gray-900 object-cover"
+                controls
+              >
+                <source src="/videos/testimonials/another-testimonial.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-6 bg-white">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p className="text-gray-700 font-semibold mb-2">Another - Patient</p>
+                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+              </div>
+            </div>
+
+            {/* Gusta Testimonial */}
+            <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <video
+                className="w-full h-64 bg-gray-900 object-cover"
+                controls
+              >
+                <source src="/videos/testimonials/gusta-testimonial.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-6 bg-white">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p className="text-gray-700 font-semibold mb-2">Gusta - Patient</p>
+                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+              </div>
+            </div>
+
+            {/* Shyam Testimonial */}
+            <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <video
+                className="w-full h-64 bg-gray-900 object-cover"
+                controls
+              >
+                <source src="/videos/testimonials/shyam-testimonial.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="p-6 bg-white">
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p className="text-gray-700 font-semibold mb-2">Shyam - Patient</p>
+                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Google Reviews Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Patient Reviews</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Google Business Reviews</h2>
             <div className="flex justify-center items-center gap-3 mb-2">
-              <span className="text-4xl">⭐⭐⭐⭐⭐</span>
-              <span className="text-2xl font-bold text-primary">4.8/5</span>
+              <span className="text-5xl">⭐⭐⭐⭐⭐</span>
+              <span className="text-3xl font-bold text-primary">5.0/5</span>
             </div>
-            <p className="text-gray-600">Based on 500+ patient reviews</p>
+            <p className="text-gray-600 text-lg">Based on 40+ verified Google reviews</p>
+            <a
+              href="https://www.google.com/maps/place/Crea+Dental+Clinic+-+Dr.+Abhinav+Giri"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block mt-4 px-6 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark transition-colors"
+            >
+              View on Google Maps →
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -218,7 +306,7 @@ export default function TestimonialsPage() {
                 controls
                 controlsList="nodownload"
               >
-                <source src="/videos/SANJANA.mp4" type="video/mp4" />
+                <source src="/videos/testimonials/SANJANA.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4 bg-white">
@@ -227,44 +315,21 @@ export default function TestimonialsPage() {
               </div>
             </div>
 
-            {/* Gouri Roy Video */}
+            {/* Gouri Video */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <video
                 className="w-full aspect-video bg-gray-900"
                 controls
                 controlsList="nodownload"
               >
-                <source src="/videos/gouri roy.mp4" type="video/mp4" />
+                <source src="/videos/testimonials/Testimonial- Gouri.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
               <div className="p-4 bg-white">
-                <p className="font-semibold text-gray-900">Gouri Roy - Patient Testimonial</p>
+                <p className="font-semibold text-gray-900">Gouri - Patient Testimonial</p>
                 <p className="text-sm text-gray-600">Real patient experience</p>
               </div>
             </div>
-
-            {/* Placeholder testimonial */}
-            <div
-              className="bg-gray-900 rounded-lg aspect-video flex items-center justify-center cursor-pointer hover:bg-opacity-80 transition-all group"
-            >
-              <div className="text-center">
-                <div className="text-5xl mb-3 group-hover:scale-125 transition-transform">▶️</div>
-                <p className="text-white font-semibold">Patient Testimonial 3</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-green-50 border border-green-200 rounded-lg p-8">
-            <h3 className="font-bold text-green-900 mb-2">✅ Patient Videos Added</h3>
-            <p className="text-green-800 text-sm">
-              Sanjana and Gouri Roy's testimonials are now live! You can add more patient video testimonials by:
-            </p>
-            <ul className="text-green-800 text-sm mt-3 ml-4">
-              <li>• Adding more MP4 videos to /public/videos/</li>
-              <li>• Uploading videos from your patients</li>
-              <li>• Embedding YouTube or Vimeo videos</li>
-              <li>• Recording new patient testimonials</li>
-            </ul>
           </div>
         </div>
       </section>
@@ -278,12 +343,12 @@ export default function TestimonialsPage() {
               <p className="opacity-90">Happy Patients</p>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">4.8</div>
+              <div className="text-4xl font-bold mb-2">5.0</div>
               <p className="opacity-90">Google Rating</p>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">10+</div>
-              <p className="opacity-90">Years Experience</p>
+              <div className="text-4xl font-bold mb-2">40+</div>
+              <p className="opacity-90">Google Reviews</p>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">100%</div>
