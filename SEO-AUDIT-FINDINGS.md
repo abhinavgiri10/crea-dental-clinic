@@ -37,7 +37,7 @@ The booking page had the same title as the homepage:
 | **Booking** | **"Best Dentist in Egmore, Chennai - Crea Dental Clinic"** (DUPLICATE) | **"Book Your Appointment - Crea Dental Clinic Chennai"** ✓ FIXED |
 
 ### What Changed
-**File**: `app/booking/page.js`
+**File**: `app/booking/layout.js`
 
 **Added Metadata**:
 ```javascript
@@ -56,9 +56,8 @@ export const metadata = {
 ## Next Steps
 
 1. **Commit & Deploy Changes**
-   - Commit the updated `app/booking/page.js` file
-   - Push to GitHub
-   - Deploy via Vercel (automatic)
+   - Commit the updated files to GitHub
+   - Push to GitHub (automatic Vercel deployment)
 
 2. **Verify Fix**
    - Wait 15-30 minutes for Vercel deployment
@@ -123,7 +122,7 @@ export const metadata = {
 3. **Long Term** (Weeks 3-4)
    - Monitor rankings for target keywords
    - Continue backlink building
-   - Add FAQ section for featured snippets
+   - Add FAQ section
 
 ---
 

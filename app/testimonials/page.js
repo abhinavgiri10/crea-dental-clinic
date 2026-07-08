@@ -2,8 +2,8 @@ import TestimonialsPreview from '@/components/TestimonialsPreview';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'Patient Reviews - Crea Dental Clinic',
-  description: 'Read reviews from our satisfied patients and watch video testimonials from Crea Dental Clinic.',
+  title: 'Patient Reviews & Testimonials - Crea Dental Clinic Chennai',
+  description: 'Read 40+ reviews from satisfied patients in Egmore, Chennai. Watch video testimonials and 5-star ratings for our dental treatments.',
 };
 
 const ALL_TESTIMONIALS = [
@@ -184,66 +184,96 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Image Testimonials Section */}
+      {/* YouTube Video Testimonials Section */}
       <section className="py-16 md:py-24 bg-light-bg">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Patient Testimonial Photos</h2>
-            <p className="text-gray-600 text-lg">Meet some of our happy patients</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Patient Video Testimonials</h2>
+            <p className="text-gray-600 text-lg">Hear directly from our satisfied patients</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Another Testimonial */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <video
-                className="w-full h-64 bg-gray-900 object-cover"
-                controls
-              >
-                <source src="/videos/testimonials/another-testimonial.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="p-6 bg-white">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/xMg_ju1NwHI"
+                title="Another - Patient Testimonial - Crea Dental Clinic"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-t-lg"
+              ></iframe>
+              <div className="p-4 bg-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">⭐⭐⭐⭐⭐</span>
                 </div>
-                <p className="text-gray-700 font-semibold mb-2">Another - Patient</p>
-                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+                <p className="font-semibold text-gray-900">Another</p>
+                <p className="text-sm text-gray-600">Patient Testimonial</p>
               </div>
             </div>
 
-            {/* Gusta Testimonial */}
+            {/* Geetha Testimonial */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <video
-                className="w-full h-64 bg-gray-900 object-cover"
-                controls
-              >
-                <source src="/videos/testimonials/gusta-testimonial.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="p-6 bg-white">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/wr2MPsU97Ek"
+                title="Geetha - Patient Testimonial - Crea Dental Clinic"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-t-lg"
+              ></iframe>
+              <div className="p-4 bg-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">⭐⭐⭐⭐⭐</span>
                 </div>
-                <p className="text-gray-700 font-semibold mb-2">Gusta - Patient</p>
-                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+                <p className="font-semibold text-gray-900">Geetha</p>
+                <p className="text-sm text-gray-600">Patient Testimonial</p>
               </div>
             </div>
 
             {/* Shyam Testimonial */}
             <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <video
-                className="w-full h-64 bg-gray-900 object-cover"
-                controls
-              >
-                <source src="/videos/testimonials/shyam-testimonial.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="p-6 bg-white">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xl">⭐⭐⭐⭐⭐</span>
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/6_jQMr5QY98"
+                title="Shyam - Patient Testimonial - Crea Dental Clinic"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-t-lg"
+              ></iframe>
+              <div className="p-4 bg-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">⭐⭐⭐⭐⭐</span>
                 </div>
-                <p className="text-gray-700 font-semibold mb-2">Shyam - Patient</p>
-                <p className="text-sm text-gray-600">Video testimonial from our satisfied patient</p>
+                <p className="font-semibold text-gray-900">Shyam</p>
+                <p className="text-sm text-gray-600">Patient Testimonial</p>
+              </div>
+            </div>
+
+            {/* Sanjana Testimonial */}
+            <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <iframe
+                width="100%"
+                height="280"
+                src="https://www.youtube.com/embed/4QWQhJ1TEso"
+                title="Sanjana - Patient Testimonial - Crea Dental Clinic"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-t-lg"
+              ></iframe>
+              <div className="p-4 bg-white">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-lg">⭐⭐⭐⭐⭐</span>
+                </div>
+                <p className="font-semibold text-gray-900">Sanjana</p>
+                <p className="text-sm text-gray-600">Patient Testimonial</p>
               </div>
             </div>
           </div>
