@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://creadentalclinic.com/sitemap.xml
+
+# Block crawling of unnecessary files
+Disallow: /api/
+Disallow: /*.json$
+Disallow: /admin/

@@ -1,0 +1,37 @@
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Crea Dental Clinic",
+  "image": "https://creadentalclinic.com/logo.png",
+  "description": "Professional dental care in Egmore, Chennai. Best dentist offering painless treatments, implants, whitening, and more.",
+  "telephone": "+91 8778548741",
+  "email": "abhinavgiri@creadentalclinic.com",
+  "url": "https://creadentalclinic.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "16/1, 1st floor, Sait Colony 1st Street, above Freshco",
+    "addressLocality": "Egmore",
+    "addressRegion": "Tamil Nadu",
+    "postalCode": "600008",
+    "addressCountry": "India"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "13.0080",
+    "longitude": "80.2551"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      "opens": "10:00",
+      "closes": "20:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "40"
+  },
+  "priceRange": "₹₹"
+}
