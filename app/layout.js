@@ -3,8 +3,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata = {
-  title: 'Crea Dental Clinic - Chennai Dental Care',
-  description: 'Creating exceptional dental experiences. Expert dental care with modern facilities in Egmore, Chennai. Book your appointment today!',
+  title: 'Best Dentist in Egmore, Chennai - Crea Dental Clinic',
+  description: 'Professional dental care in Egmore, Chennai. Expert treatments, painless procedures, and 40+ patient reviews. Book your appointment today!',
   keywords: ['dental clinic', 'dentist', 'Chennai', 'teeth whitening', 'implants', 'braces'],
   openGraph: {
     title: 'Crea Dental Clinic - Your Smile, Our Passion',
