@@ -29,7 +29,7 @@ export default function ClinicCarousel() {
         <div
           key={index}
           className={`absolute inset-0 transition-opacity duration-1000 ${
-            index === currentIndex ? 'opacity-100' : 'opacity-0'
+            index === currentIndex ? 'opacity-50' : 'opacity-0'
           }`}
           style={{
             backgroundImage: `url(${image})`,
@@ -40,7 +40,7 @@ export default function ClinicCarousel() {
       ))}
 
       {/* Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30 pointer-events-none"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-50 pointer-events-none"></div>
     </div>
   );
 }
