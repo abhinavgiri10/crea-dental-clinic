@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Gallery from '@/components/Gallery';
 import Services from '@/components/Services';
+import LocalServices from '@/components/LocalServices';
 import TestimonialsPreview from '@/components/TestimonialsPreview';
 import TestimonialsWidget from '@/components/TestimonialsWidget';
 import SocialActivities from '@/components/SocialActivities';
@@ -142,6 +143,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Local Services with SEO Keywords */}
+      <LocalServices />
 
       {/* Gallery */}
       <section className="py-16 md:py-24 bg-white">
