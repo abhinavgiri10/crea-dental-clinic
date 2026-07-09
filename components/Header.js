@@ -73,6 +73,11 @@ export default function Header() {
             </Link>
           </li>
           <li>
+            <Link href="/faq" className={`font-medium transition-all ${isActive('/faq')}`}>
+              FAQ
+            </Link>
+          </li>
+          <li>
             <Link href="/booking" className="bg-accent hover:bg-opacity-90 text-white px-6 py-2 rounded-lg font-bold transition-all duration-300 hover:shadow-lg">
               Book Appointment
             </Link>
@@ -102,6 +107,9 @@ export default function Header() {
             </Link>
             <Link href="/testimonials" className="block py-2 font-medium text-gray-700 hover:text-primary transition-colors">
               Reviews
+            </Link>
+            <Link href="/faq" className="block py-2 font-medium text-gray-700 hover:text-primary transition-colors">
+              FAQ
             </Link>
             <Link href="/booking" className="block bg-accent hover:bg-opacity-90 text-white text-center font-bold py-3 rounded-lg transition-all duration-300">
               Book Appointment
