@@ -11,6 +11,9 @@ export const metadata = {
     description: 'Creating exceptional dental experiences catered to your requirements',
     type: 'website',
   },
+  verification: {
+    google: 'EhErAMfZQbsaraaWYi65VLHdESif8pbZk6mqw5AVsCY',
+  },
 };
 
 export default function RootLayout({ children }) {
