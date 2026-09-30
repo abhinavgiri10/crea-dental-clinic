@@ -25,14 +25,15 @@ export default function RootLayout({ children }) {
         <meta name="theme-color" content="#0E95B8" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg'><text y='32' font-size='32'>🦷</text></svg>" />
 
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-GS5ST8GQ8Z"></script>
-        <script dangerouslySetInnerHTML={{__html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-GS5ST8GQ8Z');
-        `}} />
+        {/* Google Analytics + Google Ads */}
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GS5ST8GQ8Z"></script>
+<script dangerouslySetInnerHTML={{__html: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-GS5ST8GQ8Z');
+  gtag('config', 'AW-18482699577');
+`}} />
 
         {/* Meta Pixel */}
         <script dangerouslySetInnerHTML={{__html: `
