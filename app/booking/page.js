@@ -23,7 +23,11 @@ export default function BookingPage() {
 
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
-
+  const trackConversion = () => {
+  if (typeof window.gtag_report_conversion === 'function') {
+    window.gtag_report_conversion();
+  }
+};
   const today = new Date().toISOString().split('T')[0];
 
   const handleChange = (e) => {
@@ -197,7 +201,7 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Speak directly with our appointment team. They will find the perfect slot for you.
                   </p>
-                  <a href="tel:+918778548741" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                  <a href="tel:+918778548741" onClick={trackConversion} className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
                     Call Now
                   </a>
                 </div>
@@ -210,7 +214,7 @@ export default function BookingPage() {
                   <p className="text-gray-700 mb-8 text-lg">
                     Send us a message on WhatsApp and we will get back to you shortly with available appointment slots.
                   </p>
-                  <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
+                  <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" onClick={trackConversion} className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
                     Message on WhatsApp
                   </a>
                 </div>
