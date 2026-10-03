@@ -78,7 +78,7 @@ export default function RootLayout({ children }) {
             y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
           })(window, document, "clarity", "script", "yrzjzhogc7");
         `}} />
-      </head>
+ 
 
         {/* Meta Pixel */}
         <script dangerouslySetInnerHTML={{__html: `
