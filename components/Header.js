@@ -20,7 +20,7 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white sticky top-0 z-1000 shadow-sm">
+    <header className="bg-white sticky top-0 z-40 shadow-sm">
       {/* Top Bar with Contact Info */}
       <div className="bg-primary text-white text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-center items-center flex-wrap gap-4 md:gap-8">
