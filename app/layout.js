@@ -53,6 +53,24 @@ export default function RootLayout({ children }) {
   }
 `}} />
 
+{/* Google Ads conversion event: Header call / WhatsApp click */}
+<script dangerouslySetInnerHTML={{__html: `
+  function gtag_report_header_conversion(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18482699577/Dxo3CL6v24sdELm6nu1E',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
+    });
+    return false;
+  }
+`}} />
+
         {/* Meta Pixel */}
         <script dangerouslySetInnerHTML={{__html: `
           !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
