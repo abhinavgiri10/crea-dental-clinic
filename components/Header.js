@@ -9,6 +9,12 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const trackConversion = () => {
+  if (typeof window.gtag_report_header_conversion === 'function') {
+    window.gtag_report_header_conversion();
+  }
+};
+
   const isActive = (path) => {
     return pathname === path ? 'text-accent font-semibold' : 'text-gray-700 hover:text-primary transition-colors';
   };
@@ -18,11 +24,11 @@ export default function Header() {
       {/* Top Bar with Contact Info */}
       <div className="bg-primary text-white text-sm py-2">
         <div className="max-w-7xl mx-auto px-4 flex justify-center items-center flex-wrap gap-4 md:gap-8">
-          <a href="tel:+918778548741" className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
+<a href="tel:+918778548741" onClick={trackConversion} className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
             <span>📞</span>
             <span>+91 8778548741</span>
           </a>
-          <a href="https://wa.me/918778548741" className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
+          <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" onClick={trackConversion} className="flex items-center gap-2 hover:text-accent transition-colors text-xs md:text-sm">
             <span>💬</span>
             <span>WhatsApp</span>
           </a>
@@ -114,8 +120,8 @@ export default function Header() {
             <Link href="/booking" className="block bg-accent hover:bg-opacity-90 text-white text-center font-bold py-3 rounded-lg transition-all duration-300">
               Book Appointment
             </Link>
-            <a href="https://wa.me/918778548741" className="block bg-green-500 hover:bg-green-600 text-white text-center font-bold py-3 rounded-lg transition-all duration-300">
-              Chat on WhatsApp
+            <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" onClick={trackConversion} className="block bg-green-500 hover:bg-green-600 text-white text-center font-bold py-3 rounded-lg transition-all duration-300">
+                  Chat on WhatsApp
             </a>
           </div>
         </div>
