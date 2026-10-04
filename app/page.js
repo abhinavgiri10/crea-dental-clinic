@@ -72,7 +72,7 @@ export default function Home() {
         </div>
 
         {/* Doctor Profiles Section */}
-        <div className="bg-gray-50 py-16 md:py-24">
+        <div id="team" className="bg-gray-50 py-16 md:py-24 scroll-mt-40">
           <div className="max-w-7xl mx-auto px-4">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Meet Our Expert Team</h2>
