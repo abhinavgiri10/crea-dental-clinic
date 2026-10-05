@@ -107,7 +107,7 @@ export default function BookingPage() {
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">Select How to Book</h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <button
               onClick={() => setActiveTab(activeTab === 'call' ? null : 'call')}
               className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
@@ -141,24 +141,6 @@ export default function BookingPage() {
               </p>
               <p className={`text-lg font-bold mt-3 ${activeTab === 'whatsapp' ? 'text-white' : 'text-accent'}`}>
                 Message Us
-              </p>
-            </button>
-
-            <button
-              onClick={() => setActiveTab(activeTab === 'instagram' ? null : 'instagram')}
-              className={`p-8 rounded-lg transition-all duration-300 cursor-pointer border-2 ${
-                activeTab === 'instagram'
-                  ? 'bg-primary text-white border-primary shadow-lg'
-                  : 'bg-white text-gray-900 border-gray-200 hover:border-primary hover:shadow-md'
-              }`}
-            >
-              <div className="text-5xl mb-4">📱</div>
-              <h3 className="text-xl font-bold mb-2">Instagram DM</h3>
-              <p className={`text-sm ${activeTab === 'instagram' ? 'text-white opacity-90' : 'text-gray-600'}`}>
-                DM us on Instagram
-              </p>
-              <p className={`text-lg font-bold mt-3 ${activeTab === 'instagram' ? 'text-white' : 'text-accent'}`}>
-                @creadentalclinic_
               </p>
             </button>
 
@@ -216,19 +198,6 @@ export default function BookingPage() {
                   </p>
                   <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" onClick={trackConversion} className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
                     Message on WhatsApp
-                  </a>
-                </div>
-              )}
-
-              {activeTab === 'instagram' && (
-                <div className="text-center">
-                  <div className="text-6xl mb-6">📱</div>
-                  <h3 className="text-3xl font-bold text-primary mb-6">Direct Message on Instagram</h3>
-                  <p className="text-gray-700 mb-8 text-lg">
-                    Follow us on Instagram and send a direct message to book your appointment.
-                  </p>
-                  <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="inline-block bg-accent hover:bg-opacity-90 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300">
-                    Message on Instagram
                   </a>
                 </div>
               )}

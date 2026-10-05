@@ -47,14 +47,14 @@ export default function TestimonialsWidget() {
             <span className="text-4xl">⭐⭐⭐⭐⭐</span>
             <span className="text-2xl font-bold">5.0/5</span>
           </div>
-          <p className="text-lg opacity-90">From 40+ verified Google reviews</p>
+          <p className="text-lg opacity-90">From 50+ verified Google reviews</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="flex md:grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-20 transition-all duration-300"
+             className="shrink-0 w-[85%] sm:w-[60%] md:w-auto snap-center bg-white bg-opacity-10 backdrop-blur-sm rounded-lg p-6 hover:bg-opacity-20 transition-all duration-300"
             >
               <StarRating rating={testimonial.rating} />
               <p className="text-white italic my-4 leading-relaxed">

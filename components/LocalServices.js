@@ -1,3 +1,4 @@
+import Link from 'next/link';
 export default function LocalServices() {
   const services = [
     {
@@ -131,6 +132,14 @@ export default function LocalServices() {
               </div>
             ))}
           </div>
+          <div className="text-center mt-12">
+            <Link
+              href="/services"
+              className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 inline-block"
+            >
+              View All Services
+            </Link>
+          </div>
 
           {/* Trust Badges */}
           <div className="mt-16 bg-white rounded-lg p-8 border-l-4 border-accent">
@@ -141,17 +150,34 @@ export default function LocalServices() {
               <div>
                 <div className="text-4xl mb-3">⭐</div>
                 <p className="font-bold text-gray-900">5.0/5 Rating</p>
-                <p className="text-gray-600">40+ verified patient reviews</p>
+                <p className="text-gray-600">50+ verified patient reviews</p>
               </div>
               <div>
-                <div className="text-4xl mb-3">👨‍⚕️</div>
-                <p className="font-bold text-gray-900">Expert Specialists</p>
-                <p className="text-gray-600">15+ years of experience</p>
-              </div>
-              <div>
+            <div className="text-4xl mb-3">👨‍⚕️</div>
+            <p className="font-bold text-gray-900">Expert Specialists</p>
+            <p className="text-gray-600">15+ years of experience</p>
+            <p className="text-gray-600 text-sm mt-1">Indian Dental Association Life Member</p>
+            <p className="text-gray-600 text-sm">Indian Prosthodontic Society Life Member</p>
+            </div>
+                            <div>
                 <div className="text-4xl mb-3">💙</div>
                 <p className="font-bold text-gray-900">Patient Focused</p>
                 <p className="text-gray-600">Compassionate and professional care</p>
+              </div>
+              <div>
+                <div className="text-4xl mb-3">🤝</div>
+                <p className="font-bold text-gray-900">Treatment Explained Clearly</p>
+                <p className="text-gray-600">Every option and step explained before we begin</p>
+              </div>
+              <div>
+                <div className="text-4xl mb-3">😊</div>
+                <p className="font-bold text-gray-900">Your Comfort Comes First</p>
+                <p className="text-gray-600">Gentle, comfortable care at your pace</p>
+              </div>
+              <div>
+                <div className="text-4xl mb-3">🏥</div>
+                <p className="font-bold text-gray-900">Modern Dental Facilities</p>
+                <p className="text-gray-600">Up-to-date equipment in a clean, calm clinic</p>
               </div>
             </div>
           </div>
