@@ -157,11 +157,11 @@ export default function Gallery() {
             </div>
 
             {/* Images Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 overflow-x-auto md:overflow-visible snap-x snap-mandatory -mx-4 px-4 md:mx-0 md:px-0 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               {section.images.map((image) => (
                 <div
                   key={image.id}
-                  className="relative h-64 rounded-lg overflow-hidden cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300"
+                  className="relative shrink-0 w-[80%] sm:w-[55%] md:w-auto h-64 snap-center rounded-lg overflow-hidden cursor-pointer group shadow-lg hover:shadow-2xl transition-all duration-300"
                   onClick={() => setSelectedImage(image)}
                 >
                   <Image
@@ -169,8 +169,8 @@ export default function Gallery() {
                     alt={image.alt}
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-300"
-                    priority
-                  />
+sizes="(max-width: 768px) 80vw, (max-width: 1024px) 50vw, 33vw"
+/>
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
                     <div className="text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">

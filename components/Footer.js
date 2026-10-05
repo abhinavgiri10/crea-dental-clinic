@@ -82,7 +82,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm opacity-80">
           <p>
-            © 2025 Crea Dental Clinic. All rights reserved. | Designed for smiles.
+            © 2026 Crea Dental Clinic. All rights reserved. | Designed for smiles.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <Link href="/services" className="hover:text-accent transition-colors">Services</Link>

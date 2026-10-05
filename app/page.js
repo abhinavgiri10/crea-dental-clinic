@@ -9,35 +9,14 @@ import SocialActivities from '@/components/SocialActivities';
 import EquipmentShowcase from '@/components/EquipmentShowcase';
 import DoctorProfiles from '@/components/DoctorProfiles';
 import ClinicCarousel from '@/components/ClinicCarousel';
+import VideoTestimonials from '@/components/VideoTestimonials';
 
 export default function Home() {
 
   return (
     <>
-      {/* Top Info Bar */}
-      <div className="bg-primary text-white">
-        <div className="max-w-7xl mx-auto px-4 py-3">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center text-sm md:text-base">
-            <a href="tel:+918778548741" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <span>📞</span>
-              <span>+91 8778548741</span>
-            </a>
-            <a href="https://wa.me/918778548741" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <span>💬</span>
-              <span>WhatsApp</span>
-            </a>
-            <a href="https://instagram.com/creadentalclinic_" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-accent transition-colors">
-              <span>📱</span>
-              <span>Instagram</span>
-            </a>
-            <div className="flex items-center gap-2">
-              <span>⏰</span>
-              <span>Mon-Sun: 10 AM - 8 PM</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
+           
       {/* Professional Hero Section with Doctor Profiles */}
       <section className="bg-white py-0 md:py-0">
         {/* Main Hero */}
@@ -70,7 +49,27 @@ export default function Home() {
             </div>
           </div>
         </div>
-
+ {/* Trust Bar */}
+        <div className="bg-white border-b border-gray-200 shadow-sm">
+          <div className="max-w-7xl mx-auto px-4 py-5 md:py-6 grid grid-cols-2 md:grid-cols-4 gap-y-5 gap-x-4 text-center md:divide-x md:divide-gray-200">
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">⭐ 5.0/5</div>
+              <div className="text-xs md:text-sm text-gray-600 mt-1">Google Rating</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">50+</div>
+              <div className="text-xs md:text-sm text-gray-600 mt-1">Google Reviews</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">15+</div>
+              <div className="text-xs md:text-sm text-gray-600 mt-1">Years of Dental Experience</div>
+            </div>
+            <div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">📍 Egmore</div>
+              <div className="text-xs md:text-sm text-gray-600 mt-1">Chennai</div>
+            </div>
+          </div>
+        </div>
         {/* Doctor Profiles Section */}
         <div id="team" className="bg-gray-50 py-16 md:py-24 scroll-mt-40">
           <div className="max-w-7xl mx-auto px-4">
@@ -84,95 +83,43 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credentials & Trust Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Why Choose Us?</h2>
-            <p className="text-gray-600 text-lg">Trusted by hundreds of patients with excellence and care</p>
-          </div>
-
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="inline-block w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">🏆</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">IDA Life Member</h3>
-              <p className="text-gray-600 text-sm">Indian Dental Association</p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-block w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">👥</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">Prosthodontic Society</h3>
-              <p className="text-gray-600 text-sm">Indian Prosthodontic Society Life Member</p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-block w-16 h-16 bg-accent bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">⚡</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">Advanced Technology</h3>
-              <p className="text-gray-600 text-sm">Latest dental equipment & techniques</p>
-            </div>
-
-            <div className="text-center">
-              <div className="inline-block w-16 h-16 bg-primary bg-opacity-20 rounded-full flex items-center justify-center mb-4">
-                <span className="text-3xl">💙</span>
-              </div>
-              <h3 className="font-bold text-gray-900 mb-2">Patient Care</h3>
-              <p className="text-gray-600 text-sm">Compassionate & comfortable experience</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Preview */}
-      <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Comprehensive Services</h2>
-            <p className="text-gray-600 text-lg">Advanced dental solutions for all your needs</p>
-          </div>
-          <Services limit={6} />
-          <div className="text-center mt-12">
-            <Link href="/services" className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 inline-block">
-              View All Services
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Local Services with SEO Keywords */}
       <LocalServices />
 
-      {/* Gallery */}
+ 
+
+            {/* Video Testimonials */}
+      <VideoTestimonials />
+
+      {/* Google Reviews - What Our Patients Say */}
+      <TestimonialsWidget />
+
+           {/* Gallery */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <Gallery />
         </div>
       </section>
-
-      {/* Testimonials Widget - What Our Patients Say */}
-      <TestimonialsWidget />
-
-{/* Testimonials Preview */}
+      {/* FAQ Teaser */}
       <section className="py-16 md:py-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Patient Testimonials</h2>
-            <p className="text-gray-600 text-lg">Real stories from our satisfied patients</p>
-          </div>
-          <TestimonialsPreview limit={3} />
-          <div className="text-center mt-12">
-            <Link href="/testimonials" className="bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-bold transition-all duration-300 inline-block">
-              Read All Reviews
-            </Link>
-          </div>
+        <div className="max-w-3xl mx-auto px-4 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-xl font-semibold text-primary mb-3">
+            Have questions before booking?
+          </p>
+          <p className="text-gray-600 text-lg mb-8">
+            Find answers about consultations, treatments, appointments, and more.
+          </p>
+          <Link
+            href="/faq"
+            className="inline-block bg-primary hover:bg-primary-dark text-white px-8 py-3 rounded-lg font-bold transition-all duration-300"
+          >
+            View Frequently Asked Questions →
+          </Link>
         </div>
       </section>
-
       {/* Final CTA Section */}
       <section className="bg-gradient-to-r from-primary to-primary-dark text-white py-16 md:py-24">
         <div className="max-w-4xl mx-auto px-4 text-center">
